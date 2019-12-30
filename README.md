@@ -60,3 +60,10 @@ Movie information: Joker
 
 Press ENTER to continue... 
 ```
+
+## Requirements
+There is a requirements.txt available which details necessary libraries not included in standard Python.  Additionally, the program needs to import your API key which should be stored in config.py.  That file can be as simple as:
+```python
+api_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+```
+The necessary key can be generated on the [The Movie Database API portal](https://developers.themoviedb.org/3/getting-started/introduction).
