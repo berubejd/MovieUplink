@@ -112,8 +112,8 @@ def main():
         ("Movies Currently Trending (24 hrs)", mc.now_trending),
     ]
 
-    display_menu = True
-    while not display_menu == False:
+    while True:
+        # Display top-level menu options listed in menu_options and handle input
         print_menu(menu_options)
         choice = input_handler(menu_options)
 
@@ -123,6 +123,7 @@ def main():
         option_chosen = menu_options[choice - 1]
 
         while True:
+            # Display returned movies list and query for movie detail request
             movies = print_movie_choices(option_chosen)
             choice = input_handler(
                 movies,
@@ -134,6 +135,7 @@ def main():
 
             movie_chosen = movies[choice - 1]
 
+            # Display movie detail
             print_movie_detail(movie_chosen, genres)
 
 

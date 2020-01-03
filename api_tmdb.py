@@ -1,9 +1,21 @@
+import os
+import pathlib
 import requests
+import requests_cache
 import sys
+
+from datetime import timedelta
 from uplink import Consumer, get, response_handler, returns, Path
 from uplink.auth import ApiTokenParam
 
 from config import api_key
+
+tmp = pathlib.Path(os.getenv("TMP", "/tmp"))
+cache_file = tmp / "movieuplink_cache"
+
+expire_after = timedelta(hours=4)
+requests_cache.install_cache(cache_name=str(cache_file), expire_after=expire_after)
+requests_cache.remove_expired_responses()
 
 
 @response_handler
